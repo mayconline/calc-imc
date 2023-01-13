@@ -24,24 +24,6 @@ yarn
 yarn dev
 ```
 
-#### Getting Started Mobile
-
-First, run the development server:
-
-```bash
-# select web folder
-cd mobile
-
-# select node version
-nvm use
-
-# install dependencies
-yarn
-
-# run app
-yarn dev
-```
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 #### 📱 Preview Responsive Web
