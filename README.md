@@ -4,7 +4,10 @@
 
 #### :postbox: About
 
-- Calculator IMC created with Next.JS and Tailwind
+Calculator IMC created with:
+
+- Web:  Next.JS and Tailwind
+- Mobile - (*in progress*): React-Native and Nativewind 
 
 #### Getting Started
 
