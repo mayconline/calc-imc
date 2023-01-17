@@ -1,10 +1,5 @@
-import {
-  ActivityIndicator,
-  Modal,
-  SafeAreaView,
-  Text,
-  View,
-} from 'react-native';
+import { ActivityIndicator, Modal, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useIMC } from '../hooks/useIMC';
 import colors from 'tailwindcss/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
