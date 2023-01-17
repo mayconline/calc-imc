@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { Text, TextInput, TextInputProps, View } from 'react-native';
 import colors from 'tailwindcss/colors';
 
@@ -6,6 +7,13 @@ interface InputProps extends TextInputProps {
 }
 
 export function Input({ label, ...props }: InputProps) {
+  const inputRef = useRef<any>(null);
+
+  const handleFocusInput = () => {
+    inputRef.current.blur();
+    inputRef.current.focus();
+  };
+
   return (
     <View className="w-full mt-2">
       <Text className="font-bold text-base text-gray-500 dark:text-gray-100">
@@ -16,6 +24,8 @@ export function Input({ label, ...props }: InputProps) {
         {...props}
         placeholderTextColor={colors.gray[400]}
         returnKeyType="next"
+        onPressIn={handleFocusInput}
+        ref={inputRef}
       />
     </View>
   );
