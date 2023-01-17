@@ -1,17 +1,14 @@
-import { Pressable, PressableProps } from 'react-native';
+import { memo } from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-interface IconProps extends PressableProps {
+interface IconProps {
   name: string;
   size: number;
   color: string;
-  onPress?: () => void;
 }
 
-export function Icon({ name, size, color, ...props }: IconProps) {
-  return (
-    <Pressable {...props}>
-      <MaterialIcons name={name} size={size} color={color} />
-    </Pressable>
-  );
+function IconComponent({ name, size, color }: IconProps) {
+  return <MaterialIcons name={name} size={size} color={color} />;
 }
+
+export const Icon = memo(IconComponent);
