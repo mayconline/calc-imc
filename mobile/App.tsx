@@ -1,7 +1,12 @@
-import {Routes} from './src/routes';
+import { IMCProvider } from './src/context/IMCContext';
+import { Routes } from './src/routes';
 
 function App() {
-  return <Routes />;
+  return (
+    <IMCProvider>
+      <Routes />
+    </IMCProvider>
+  );
 }
 
 export default App;
