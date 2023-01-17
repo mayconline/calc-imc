@@ -15,6 +15,7 @@ export function Input({ label, ...props }: InputProps) {
         className="h-12 p-3 mt-2 text-base rounded-sm text-gray-800 dark:text-gray-100 bg-gray-200 dark:bg-gray-800 border-transparent focus:border-cyan-600 dark:focus:border-cyan-300 border-2"
         {...props}
         placeholderTextColor={colors.gray[400]}
+        returnKeyType="next"
       />
     </View>
   );
