@@ -19,6 +19,8 @@ export function Routes() {
       <Navigator
         screenOptions={{
           headerShown: false,
+          tabBarHideOnKeyboard: true,
+          tabBarLabelPosition: 'beside-icon',
           tabBarStyle: {
             backgroundColor:
               colorScheme === 'light' ? colors.gray[200] : colors.gray[800],
@@ -27,10 +29,6 @@ export function Routes() {
           tabBarActiveTintColor:
             colorScheme === 'light' ? colors.blue[400] : colors.yellow[400],
           tabBarInactiveTintColor: colors.gray[400],
-          tabBarHideOnKeyboard: true,
-          tabBarItemStyle: {
-            padding: 2,
-          },
         }}
       >
         <Screen
