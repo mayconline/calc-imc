@@ -1,4 +1,5 @@
 #import "AppDelegate.h"
+#import "RNBootSplash.h"
 
 #import <React/RCTBundleURLProvider.h>
 
@@ -7,8 +8,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   self.moduleName = @"mobile";
-  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+    [super application:application didFinishLaunchingWithOptions:launchOptions];
+    [RNBootSplash initWithStoryboard:@"BootSplash" rootView:self.window.rootViewController.view];
+
+    return YES;
 }
+
+
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {

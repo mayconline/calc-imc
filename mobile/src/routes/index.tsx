@@ -1,58 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import colors from 'tailwindcss/colors';
-import { useColorScheme } from 'nativewind';
+import RNBootSplash from 'react-native-bootsplash';
 
-import { Home } from '../screens/Home';
-import { Icon } from '../components/Icon';
-import { History } from '../screens/History';
 import { Header } from '../components/Header';
-
-const { Navigator, Screen } = createBottomTabNavigator();
+import { AppRoutes } from './app.routes';
 
 export function Routes() {
-  const { colorScheme } = useColorScheme();
-
   return (
-    <NavigationContainer>
+    <NavigationContainer onReady={() => RNBootSplash.hide()}>
       <Header />
-      <Navigator
-        screenOptions={{
-          headerShown: false,
-          tabBarHideOnKeyboard: true,
-          tabBarLabelPosition: 'beside-icon',
-          tabBarStyle: {
-            backgroundColor:
-              colorScheme === 'light' ? colors.gray[200] : colors.gray[800],
-            borderTopWidth: 0,
-          },
-          tabBarActiveTintColor:
-            colorScheme === 'light' ? colors.blue[400] : colors.yellow[400],
-          tabBarInactiveTintColor: colors.gray[400],
-        }}
-      >
-        <Screen
-          name="Home"
-          component={Home}
-          options={{
-            tabBarIcon: ({ color }) => (
-              <Icon name="weight-lifter" color={color} size={32} />
-            ),
-            tabBarLabel: 'IMC',
-          }}
-        />
-
-        <Screen
-          name="History"
-          component={History}
-          options={{
-            tabBarIcon: ({ color }) => (
-              <Icon name="history" color={color} size={32} />
-            ),
-            tabBarLabel: 'Histórico',
-          }}
-        />
-      </Navigator>
+      <AppRoutes />
     </NavigationContainer>
   );
 }
