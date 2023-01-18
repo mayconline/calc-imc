@@ -2,6 +2,7 @@ import { FormEvent, useState } from 'react';
 import { useIMC } from '../hooks/useIMC';
 
 import { FormValue } from '../types';
+import { getReplaceCommaToDot } from '../utils/format';
 
 import { Button } from './button';
 import { Input } from './input';
@@ -19,7 +20,10 @@ export function IMCForm() {
 
     if (!formValue.height || !formValue.bodyWeight) return;
 
-    handleCalculateIMC(Number(formValue.height), Number(formValue.bodyWeight));
+    handleCalculateIMC(
+      getReplaceCommaToDot(formValue.height),
+      getReplaceCommaToDot(formValue.bodyWeight)
+    );
 
     setFormValue({ bodyWeight: '', height: '' });
   };
