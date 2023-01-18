@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { useIMC } from '../hooks/useIMC';
 import { FormValue } from '../types';
+import { getReplaceCommaToDot } from '../utils/format';
 import { Button } from './Button';
 import { Input } from './Input';
 import { ResultIMCModal } from './ResultIMCModal';
@@ -22,8 +23,8 @@ export function IMCForm() {
 
     try {
       handleCalculateIMC(
-        Number(formValue.height),
-        Number(formValue.bodyWeight),
+        getReplaceCommaToDot(formValue.height),
+        getReplaceCommaToDot(formValue.bodyWeight),
       );
 
       setFormValue({ bodyWeight: '', height: '' });
