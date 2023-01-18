@@ -8,3 +8,10 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+# hermes
+-keep class com.facebook.hermes.unicode.** { *; }
+-keep class com.facebook.jni.** { *; }
+
+#react-native-svg
+-keep public class com.horcrux.svg.** {*;}
