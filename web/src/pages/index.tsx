@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import { IMCForm } from '../components/IMCForm';
+import { LinkOMS } from '../components/linkOMS';
 import { ResultList } from '../components/resultList';
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
           <h1 className="font-bold text-2xl">Calculadora de IMC</h1>
         </header>
         <main className="flex flex-col items-center justify-center w-full gap-10">
+          <LinkOMS />
           <IMCForm />
           <ResultList />
         </main>
