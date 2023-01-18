@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useCallback, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react';
 import { IMCContextType, ResultIMCType } from '../types';
 
 export const IMCContext = createContext({} as IMCContextType);
@@ -18,11 +24,14 @@ export const IMCProvider = ({ children }: IMCProviderProps) => {
     setLastResultIMC(resultImc);
   }, []);
 
-  return (
-    <IMCContext.Provider
-      value={{ resultIMC, handleSetResultIMC, lastResultIMC }}
-    >
-      {children}
-    </IMCContext.Provider>
+  const value = useMemo(
+    () => ({
+      resultIMC,
+      lastResultIMC,
+      handleSetResultIMC,
+    }),
+    [resultIMC, lastResultIMC, handleSetResultIMC],
   );
+
+  return <IMCContext.Provider value={value}>{children}</IMCContext.Provider>;
 };
