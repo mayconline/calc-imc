@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import Svg, { SvgProps, Path, Circle, Ellipse } from 'react-native-svg';
+import Svg, { Path, Circle, Ellipse } from 'react-native-svg';
 
-const HistoryLogo = (props: SvgProps) => (
-  <Svg viewBox="0 0 758.697 683.657" {...props}>
+const HistoryLogo = () => (
+  <Svg viewBox="0 0 758.697 683.657" width={256} height={224}>
     <Path
       fill="#e6e6e6"
       d="M728.113 271c0 118.6-76.18 219.4-182.28 256.14a272.758 272.758 0 0 1-132.97 11.26q-6.345-1.035-12.6-2.38-8.475-1.8-16.75-4.14c-113.91-32.06-197.4-136.72-197.4-260.88 0-149.67 121.33-271 271-271s271 121.33 271 271Z"

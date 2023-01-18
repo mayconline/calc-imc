@@ -1,7 +1,8 @@
-import { Switch, Text, View, ViewProps } from 'react-native';
+import { Switch, View, ViewProps } from 'react-native';
 import { useColorScheme } from 'nativewind';
 import colors from 'tailwindcss/colors';
 import { Icon } from './Icon';
+import { Text } from './Text';
 
 interface ToogleThemeProps extends ViewProps {}
 
@@ -10,7 +11,7 @@ export function ToogleTheme({ ...props }: ToogleThemeProps) {
 
   return (
     <View className="flex-row items-center" {...props}>
-      <Text className="text-yellow-500">Dark</Text>
+      <Text className="text-yellow-500 font-normal">Dark</Text>
 
       <Switch
         trackColor={{ true: colors.blue[400], false: colors.yellow[400] }}
@@ -21,7 +22,7 @@ export function ToogleTheme({ ...props }: ToogleThemeProps) {
         value={colorScheme === 'light'}
       />
 
-      <Text className="text-blue-400 mr-4">Light</Text>
+      <Text className="text-blue-400 font-normal mr-4">Light</Text>
 
       <Icon
         name="theme-light-dark"

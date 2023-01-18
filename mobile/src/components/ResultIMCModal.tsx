@@ -1,10 +1,11 @@
-import { ActivityIndicator, Modal, Text, View } from 'react-native';
+import { ActivityIndicator, Modal, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useIMC } from '../hooks/useIMC';
 import colors from 'tailwindcss/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useColorScheme } from 'nativewind';
 import { ProgressCircle } from 'react-native-svg-charts';
+import { Text } from './Text';
 
 interface ResultIMCModalProps {
   visible: boolean;
@@ -55,11 +56,9 @@ export function ResultIMCModal({ visible, onClose }: ResultIMCModalProps) {
               </View>
 
               <View className="flex-1 items-center justify-center">
-                <Text className="text-gray-500 dark:text-gray-100 font-bold text-4xl">
-                  {lastResultIMC?.IMC}
-                </Text>
+                <Text className="text-4xl">{lastResultIMC?.IMC}</Text>
 
-                <Text className="text-gray-500 dark:text-gray-100  text-xl">
+                <Text className="font-normal text-xl">
                   {lastResultIMC?.situation?.description}
                 </Text>
               </View>

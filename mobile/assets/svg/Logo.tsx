@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import Svg, {
-  SvgProps,
   Defs,
   LinearGradient,
   Stop,
@@ -9,8 +8,8 @@ import Svg, {
   Circle,
 } from 'react-native-svg';
 
-const Logo = (props: SvgProps) => (
-  <Svg viewBox="0 0 1105.04 782.74" {...props}>
+const Logo = () => (
+  <Svg viewBox="0 0 1105.04 782.74" width={256} height={160}>
     <Defs>
       <LinearGradient
         id="a"
