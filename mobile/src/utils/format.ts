@@ -9,7 +9,7 @@ export const getFormattedIMC = (IMC: number) => {
   if (IMC < 18.5) {
     return {
       description: 'Abaixo do peso',
-      color: colors.yellow[400],
+      color: colors.blue[400],
       progress: 0.25,
     };
   } else if (IMC >= 18.5 && IMC < 25) {
@@ -20,21 +20,21 @@ export const getFormattedIMC = (IMC: number) => {
     };
   } else if (IMC >= 25 && IMC < 30) {
     return {
-      description: 'Pré-obesidade',
-      color: colors.orange[500],
-      progress: 0.75,
+      description: 'Sobrepeso',
+      color: colors.yellow[400],
+      progress: 0.7,
     };
   } else if (IMC >= 30 && IMC < 35) {
     return {
       description: 'Obesidade Grau 1',
       color: colors.orange[500],
-      progress: 0.75,
+      progress: 0.8,
     };
   } else if (IMC >= 35 && IMC < 40) {
     return {
       description: 'Obesidade Grau 2',
-      color: colors.orange[500],
-      progress: 0.75,
+      color: colors.red[500],
+      progress: 0.9,
     };
   } else if (IMC >= 40) {
     return {
@@ -45,7 +45,7 @@ export const getFormattedIMC = (IMC: number) => {
   } else {
     return {
       description: 'Erro ao calcular',
-      color: colors.red[600],
+      color: colors.red[700],
       progress: 0,
     };
   }
