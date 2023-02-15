@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import colors from 'tailwindcss/colors';
 
 export const getFormattedDate = (date: Date) => {
-  return dayjs(date).format('DD/MM/YY [às] HH:mm');
+  return dayjs(date).format('DD/MM/YY');
 };
 
 export const getFormattedIMC = (IMC: number) => {

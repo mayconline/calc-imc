@@ -1,17 +1,18 @@
-import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import HistoryLogo from '../../assets/svg/HistoryLogo';
+import { ListIMC } from '../components/ListIMC';
+import { ListIMCItemMemo } from '../components/ListIMCItem';
+import { useIMC } from '../hooks/useIMC';
 
 export function History() {
-  return (
-    <SafeAreaView className="flex-1">
-      <View className="flex-1 justify-center items-center px-3 bg-gray-100 dark:bg-gray-900">
-        <HistoryLogo />
+  const { resultIMC } = useIMC();
 
-        <Text className="text-gray-500 dark:text-gray-100 font-bold text-2xl">
-          Em breve
-        </Text>
-      </View>
+  return (
+    <SafeAreaView className="flex-1 justify-center items-center px-3 bg-gray-100 dark:bg-gray-900">
+      <ListIMC
+        data={resultIMC.reverse()}
+        keyExtractor={item => `${item.date}-${item.IMC}`}
+        renderItem={({ item }) => <ListIMCItemMemo {...item} />}
+      />
     </SafeAreaView>
   );
 }
