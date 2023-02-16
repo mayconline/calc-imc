@@ -7,7 +7,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  self.moduleName = @"mobile";
+  self.moduleName = @"IMC Calc";
     [super application:application didFinishLaunchingWithOptions:launchOptions];
     [RNBootSplash initWithStoryboard:@"BootSplash" rootView:self.window.rootViewController.view];
 
