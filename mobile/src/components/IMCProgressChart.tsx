@@ -50,7 +50,7 @@ interface IMCChartProps {
 
 function IMCProgressChart({ item, textColor }: IMCChartProps) {
   return (
-    <View className="w-full bg-gray-200 dark:bg-gray-600 rounded-2xl mb-2">
+    <View className="w-full bg-gray-200 dark:bg-gray-700 rounded-2xl mb-2">
       <ProgressCircle
         style={{ height: 256, paddingVertical: 24 }}
         progress={0}
