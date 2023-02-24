@@ -1,8 +1,10 @@
-import dayjs from 'dayjs';
 import colors from 'tailwindcss/colors';
+import dayjs from 'dayjs';
+import 'dayjs/locale/pt-br';
+dayjs.locale('pt-br');
 
 export const getFormattedDate = (date: Date) => {
-  return dayjs(date).format('DD/MM/YY');
+  return dayjs(date).format('DD MMM');
 };
 
 export const getFormattedIMC = (IMC: number) => {

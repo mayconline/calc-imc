@@ -7,7 +7,7 @@ export function ListIMC(props: FlatListProps<ResultIMCType>) {
   return (
     <FlatList
       {...props}
-      style={{ width: '100%', marginTop: 24 }}
+      style={{ width: '100%' }}
       contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
       removeClippedSubviews={false}
       initialNumToRender={5}

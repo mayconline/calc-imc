@@ -7,11 +7,11 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useIMC } from '../hooks/useIMC';
-import colors from 'tailwindcss/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useColorScheme } from 'nativewind';
 import { Text } from './Text';
 import { IMCProgressChartMemo } from './IMCProgressChart';
+import { useColorScheme } from 'nativewind';
+import { textColorTheme } from '../utils/textColorTheme';
 
 interface ResultIMCModalProps {
   visible: boolean;
@@ -21,7 +21,7 @@ interface ResultIMCModalProps {
 export function ResultIMCModal({ visible, onClose }: ResultIMCModalProps) {
   const { lastResultIMC } = useIMC();
   const { colorScheme } = useColorScheme();
-  const color = colorScheme === 'light' ? colors.gray[500] : colors.gray[100];
+  const color = textColorTheme(colorScheme);
 
   return (
     <Modal
