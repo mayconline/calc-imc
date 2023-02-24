@@ -5,10 +5,11 @@ interface IconProps {
   name: string;
   size: number;
   color: string;
+  onPress?: () => void;
 }
 
-function IconComponent({ name, size, color }: IconProps) {
-  return <MaterialIcons name={name} size={size} color={color} />;
+function IconComponent(props: IconProps) {
+  return <MaterialIcons {...props} />;
 }
 
 export const Icon = memo(IconComponent);

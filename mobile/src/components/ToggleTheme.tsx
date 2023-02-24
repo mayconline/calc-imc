@@ -1,10 +1,4 @@
-import {
-  Pressable,
-  PressableProps,
-  Switch,
-  View,
-  ViewProps,
-} from 'react-native';
+import { Pressable, PressableProps } from 'react-native';
 import { useColorScheme } from 'nativewind';
 import colors from 'tailwindcss/colors';
 import { Icon } from './Icon';

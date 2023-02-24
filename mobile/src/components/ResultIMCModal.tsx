@@ -7,11 +7,11 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useIMC } from '../hooks/useIMC';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Text } from './Text';
 import { IMCProgressChartMemo } from './IMCProgressChart';
 import { useColorScheme } from 'nativewind';
 import { textColorTheme } from '../utils/textColorTheme';
+import { Icon } from './Icon';
 
 interface ResultIMCModalProps {
   visible: boolean;
