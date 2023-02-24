@@ -19,4 +19,5 @@ export type IMCContextType = {
   resultIMC: ResultIMCType[];
   lastResultIMC: ResultIMCType;
   handleSetResultIMC: (resultIMC: ResultIMCType) => void;
+  handleResetResultIMC: () => void;
 };

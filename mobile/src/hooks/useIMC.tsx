@@ -3,7 +3,7 @@ import { IMCContext } from '../context/IMCContext';
 import { getFormattedIMC } from '../utils/format';
 
 export function useIMC() {
-  const { resultIMC, lastResultIMC, handleSetResultIMC } =
+  const { resultIMC, lastResultIMC, handleSetResultIMC, handleResetResultIMC } =
     useContext(IMCContext);
 
   const handleCalculateIMC = useCallback(
@@ -34,5 +34,6 @@ export function useIMC() {
     resultIMC,
     lastResultIMC,
     handleCalculateIMC,
+    handleResetResultIMC,
   };
 }

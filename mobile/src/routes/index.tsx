@@ -8,8 +8,8 @@ import { AppRoutes } from './app.routes';
 export function Routes() {
   return (
     <NavigationContainer onReady={() => RNBootSplash.hide()}>
-      <Header />
       <IMCProvider>
+        <Header />
         <AppRoutes />
       </IMCProvider>
     </NavigationContainer>

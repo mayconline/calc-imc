@@ -7,15 +7,18 @@ import {
   useState,
 } from 'react';
 import { IMCContextType, ResultIMCType } from '../types';
-import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
+import { KEY_STORAGE } from '../utils/constant';
+import {
+  getLocalStorage,
+  removeLocalStorage,
+  setLocalStorage,
+} from '../utils/localStorage';
 
 export const IMCContext = createContext({} as IMCContextType);
 
 interface IMCProviderProps {
   children: ReactNode;
 }
-
-const keyStorage = '@historyIMC';
 
 export const IMCProvider = ({ children }: IMCProviderProps) => {
   const [resultIMC, setResultIMC] = useState<ResultIMCType[]>([]);
@@ -25,7 +28,7 @@ export const IMCProvider = ({ children }: IMCProviderProps) => {
 
   useEffect(() => {
     const handleGetLocalStorage = async () => {
-      const data = await getLocalStorage(keyStorage);
+      const data = await getLocalStorage(KEY_STORAGE);
 
       if (data) {
         const parsedData = JSON.parse(data) as ResultIMCType[];
@@ -39,15 +42,15 @@ export const IMCProvider = ({ children }: IMCProviderProps) => {
 
   const handleSetLocalStorage = useCallback(
     async (resultImc: ResultIMCType) => {
-      const data = await getLocalStorage(keyStorage);
+      const data = await getLocalStorage(KEY_STORAGE);
 
       if (data) {
         await setLocalStorage(
-          keyStorage,
+          KEY_STORAGE,
           JSON.stringify([resultImc, ...JSON.parse(data)]),
         );
       } else {
-        await setLocalStorage(keyStorage, JSON.stringify([resultImc]));
+        await setLocalStorage(KEY_STORAGE, JSON.stringify([resultImc]));
       }
     },
     [],
@@ -62,13 +65,20 @@ export const IMCProvider = ({ children }: IMCProviderProps) => {
     [handleSetLocalStorage],
   );
 
+  const handleResetResultIMC = useCallback(async () => {
+    setLastResultIMC({} as ResultIMCType);
+    setResultIMC([]);
+    await removeLocalStorage(KEY_STORAGE);
+  }, []);
+
   const value = useMemo(
     () => ({
       resultIMC,
       lastResultIMC,
       handleSetResultIMC,
+      handleResetResultIMC,
     }),
-    [resultIMC, lastResultIMC, handleSetResultIMC],
+    [resultIMC, lastResultIMC, handleSetResultIMC, handleResetResultIMC],
   );
 
   return <IMCContext.Provider value={value}>{children}</IMCContext.Provider>;
