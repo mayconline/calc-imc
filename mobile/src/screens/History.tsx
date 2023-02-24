@@ -14,7 +14,7 @@ export function History() {
   return (
     <SafeAreaView className="flex-1 justify-center items-center px-3 bg-gray-100 dark:bg-gray-900">
       <ListIMC
-        data={resultIMC.reverse()}
+        data={resultIMC}
         keyExtractor={item => `${item.date}-${item.IMC}`}
         renderItem={({ item }) => <ListIMCItemMemo {...item} />}
         ListHeaderComponent={() =>

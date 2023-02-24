@@ -30,7 +30,7 @@ export const IMCProvider = ({ children }: IMCProviderProps) => {
       if (data) {
         const parsedData = JSON.parse(data) as ResultIMCType[];
         setResultIMC(parsedData);
-        setLastResultIMC(parsedData[parsedData.length - 1]);
+        setLastResultIMC(parsedData[0]);
       }
     };
 
@@ -44,7 +44,7 @@ export const IMCProvider = ({ children }: IMCProviderProps) => {
       if (data) {
         await setLocalStorage(
           keyStorage,
-          JSON.stringify([...JSON.parse(data), resultImc]),
+          JSON.stringify([resultImc, ...JSON.parse(data)]),
         );
       } else {
         await setLocalStorage(keyStorage, JSON.stringify([resultImc]));
@@ -55,7 +55,7 @@ export const IMCProvider = ({ children }: IMCProviderProps) => {
 
   const handleSetResultIMC = useCallback(
     (resultImc: ResultIMCType) => {
-      setResultIMC(prevState => prevState.concat(resultImc));
+      setResultIMC(prevState => [resultImc, ...prevState]);
       setLastResultIMC(resultImc);
       handleSetLocalStorage(resultImc);
     },
