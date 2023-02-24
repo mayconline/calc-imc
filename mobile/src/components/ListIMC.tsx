@@ -10,10 +10,8 @@ export function ListIMC(props: FlatListProps<ResultIMCType>) {
       style={{ width: '100%' }}
       contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
       removeClippedSubviews={false}
-      initialNumToRender={5}
-      maxToRenderPerBatch={1}
-      updateCellsBatchingPeriod={600}
       automaticallyAdjustContentInsets={false}
+      showsVerticalScrollIndicator={false}
       ListEmptyComponent={
         <View className="justify-center items-center">
           <HistoryLogo />

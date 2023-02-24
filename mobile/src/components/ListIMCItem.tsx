@@ -8,7 +8,7 @@ function ListIMCItem(item: ResultIMCType) {
   return (
     <View
       className={
-        'rounded-2xl my-2 px-4 py-2 bg-gray-200 dark:bg-gray-600 border-l-8'
+        'rounded-2xl my-2 px-4 py-1 bg-gray-200 dark:bg-gray-600 border-l-8'
       }
       style={{
         borderLeftColor: item.situation.color,

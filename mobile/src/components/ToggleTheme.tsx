@@ -1,34 +1,36 @@
-import { Switch, View, ViewProps } from 'react-native';
+import {
+  Pressable,
+  PressableProps,
+  Switch,
+  View,
+  ViewProps,
+} from 'react-native';
 import { useColorScheme } from 'nativewind';
 import colors from 'tailwindcss/colors';
 import { Icon } from './Icon';
 import { Text } from './Text';
 
-interface ToogleThemeProps extends ViewProps {}
+interface ToogleThemeProps extends PressableProps {}
 
 export function ToogleTheme({ ...props }: ToogleThemeProps) {
   const { colorScheme, toggleColorScheme } = useColorScheme();
 
+  const color = colorScheme === 'light' ? colors.blue[400] : colors.yellow[400];
+
   return (
-    <View className="flex-row items-center" {...props}>
-      <Text className="text-yellow-500 font-normal">Dark</Text>
+    <Pressable
+      className="flex-row items-center justify-center"
+      onPress={toggleColorScheme}
+      android_ripple={{ color: color, radius: 1 }}
+      {...props}
+    >
+      <Icon name="theme-light-dark" color={color} size={24} />
 
-      <Switch
-        trackColor={{ true: colors.blue[400], false: colors.yellow[400] }}
-        thumbColor={
-          colorScheme === 'light' ? colors.blue[900] : colors.yellow[900]
-        }
-        onValueChange={toggleColorScheme}
-        value={colorScheme === 'light'}
-      />
-
-      <Text className="text-blue-400 font-normal mr-4">Light</Text>
-
-      <Icon
-        name="theme-light-dark"
-        color={colorScheme === 'light' ? colors.blue[400] : colors.yellow[400]}
-        size={24}
-      />
-    </View>
+      {colorScheme === 'light' ? (
+        <Text className="text-blue-400 font-normal ml-2">Light</Text>
+      ) : (
+        <Text className="text-yellow-400 font-normal ml-2">Dark</Text>
+      )}
+    </Pressable>
   );
 }

@@ -26,8 +26,11 @@ export const IMCProvider = ({ children }: IMCProviderProps) => {
   useEffect(() => {
     const handleGetLocalStorage = async () => {
       const data = await getLocalStorage(keyStorage);
+
       if (data) {
-        setResultIMC(JSON.parse(data));
+        const parsedData = JSON.parse(data) as ResultIMCType[];
+        setResultIMC(parsedData);
+        setLastResultIMC(parsedData[parsedData.length - 1]);
       }
     };
 
@@ -43,6 +46,8 @@ export const IMCProvider = ({ children }: IMCProviderProps) => {
           keyStorage,
           JSON.stringify([...JSON.parse(data), resultImc]),
         );
+      } else {
+        await setLocalStorage(keyStorage, JSON.stringify([resultImc]));
       }
     },
     [],
