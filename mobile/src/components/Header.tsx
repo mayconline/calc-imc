@@ -16,17 +16,17 @@ export function Header() {
 
   return (
     <>
-      <View className="flex-row justify-between items-center bg-gray-200 dark:bg-gray-800 w-full p-3">
+      <View className="flex-row justify-between items-center bg-gray-100 dark:bg-gray-900 w-full p-3">
         <View className="flex-row justify-center items-center">
           <IMCLogo />
-          <Text className="text-xl ml-2">IMC Calc</Text>
+          <Text className="text-lg ml-2">IMC Calc</Text>
         </View>
 
         <View className="flex-row justify-center items-center">
           <ToogleTheme className="mr-6" />
           <Icon
             name="dots-vertical"
-            size={36}
+            size={28}
             color={color}
             onPress={() => setOpenModal(true)}
           />
