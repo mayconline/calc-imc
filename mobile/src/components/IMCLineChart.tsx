@@ -1,10 +1,10 @@
 import { memo, useEffect, useState } from 'react';
-import { IMCChartProps, ResultIMCType } from '../types';
+import { ResultIMCType } from '../types';
 import { LineChart, XAxis } from 'react-native-svg-charts';
 import { View } from 'react-native';
-
 import { getFormattedDate } from '../utils/format';
 import { Text } from './Text';
+import { curveCardinal } from 'd3-shape';
 
 type chartValueProps = {
   IMC: string;
@@ -43,6 +43,7 @@ function IMCLineChart({ data = [], textColor, lastResult }: IMCLineChartProps) {
           stroke: lastResult?.situation?.color,
         }}
         yAccessor={({ item }) => Number(item.IMC)}
+        curve={curveCardinal}
       />
       <XAxis
         data={chartValue}
