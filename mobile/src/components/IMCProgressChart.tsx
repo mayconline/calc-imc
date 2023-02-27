@@ -11,6 +11,7 @@ import {
   Circle,
 } from 'react-native-svg';
 import { View } from 'react-native';
+import { Text } from './Text';
 
 const Gradient = () => (
   <Defs key={'gradient'}>
@@ -46,13 +47,18 @@ const Marker = ({ color = 'grey', rotation = 20 }) => {
 interface IMCChartProps {
   item: ResultIMCType;
   textColor: string;
+  isHistory?: boolean;
 }
 
-function IMCProgressChart({ item, textColor }: IMCChartProps) {
+function IMCProgressChart({
+  item,
+  textColor,
+  isHistory = false,
+}: IMCChartProps) {
   return (
-    <View className="w-full bg-gray-200 dark:bg-gray-700 rounded-2xl mb-2">
+    <View className="w-full">
       <ProgressCircle
-        style={{ height: 256, paddingVertical: 24 }}
+        style={{ height: 256, paddingVertical: isHistory ? 24 : 0 }}
         progress={0}
         progressColor={item?.situation?.color}
         startAngle={-Math.PI / 2}
@@ -65,6 +71,7 @@ function IMCProgressChart({ item, textColor }: IMCChartProps) {
           color={item?.situation?.color}
           rotation={item?.situation?.progress}
         />
+
         <G x={0} y={40}>
           <TextSVG
             fill={textColor}
