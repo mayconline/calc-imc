@@ -37,7 +37,7 @@ function IMCLineChart({ data = [], textColor, lastResult }: IMCLineChartProps) {
       <LineChart
         style={{ height: 180, paddingVertical: 24 }}
         data={chartValue}
-        contentInset={{ top: 8, bottom: 8 }}
+        contentInset={{ top: 20, bottom: 20 }}
         svg={{
           strokeWidth: 2,
           stroke: lastResult?.situation?.color,
