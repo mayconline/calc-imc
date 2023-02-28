@@ -13,20 +13,15 @@ import { useColorScheme } from 'nativewind';
 import { textColorTheme } from '../utils/textColorTheme';
 import { Icon } from './Icon';
 
-interface ResultIMCModalProps {
-  visible: boolean;
-  onClose: () => void;
-}
-
-export function ResultIMCModal({ visible, onClose }: ResultIMCModalProps) {
-  const { lastResultIMC } = useIMC();
+export function ResultIMCModal() {
+  const { lastResultIMC, openResultModal, toggleResultModal } = useIMC();
   const { colorScheme } = useColorScheme();
   const color = textColorTheme(colorScheme);
 
   return (
     <Modal
-      visible={visible}
-      onRequestClose={onClose}
+      visible={openResultModal}
+      onRequestClose={toggleResultModal}
       animationType="fade"
       transparent
     >
@@ -37,7 +32,7 @@ export function ResultIMCModal({ visible, onClose }: ResultIMCModalProps) {
               name="close-circle-outline"
               size={36}
               color={color}
-              onPress={onClose}
+              onPress={toggleResultModal}
             />
           </View>
 

@@ -25,6 +25,7 @@ export const IMCProvider = ({ children }: IMCProviderProps) => {
   const [lastResultIMC, setLastResultIMC] = useState<ResultIMCType>(
     {} as ResultIMCType,
   );
+  const [openResultModal, setOpenResultModal] = useState<boolean>(false);
 
   useEffect(() => {
     const handleGetLocalStorage = async () => {
@@ -56,6 +57,13 @@ export const IMCProvider = ({ children }: IMCProviderProps) => {
     [],
   );
 
+  const handleSetLastResultIMC = useCallback(
+    (resultImc: ResultIMCType) => {
+      setLastResultIMC(resultImc);
+    },
+    [setLastResultIMC],
+  );
+
   const handleSetResultIMC = useCallback(
     (resultImc: ResultIMCType) => {
       setResultIMC(prevState => [resultImc, ...prevState]);
@@ -71,14 +79,29 @@ export const IMCProvider = ({ children }: IMCProviderProps) => {
     await removeLocalStorage(KEY_STORAGE);
   }, []);
 
+  const toggleResultModal = useCallback(() => {
+    setOpenResultModal(prevState => !prevState);
+  }, []);
+
   const value = useMemo(
     () => ({
       resultIMC,
       lastResultIMC,
+      openResultModal,
       handleSetResultIMC,
       handleResetResultIMC,
+      toggleResultModal,
+      handleSetLastResultIMC,
     }),
-    [resultIMC, lastResultIMC, handleSetResultIMC, handleResetResultIMC],
+    [
+      resultIMC,
+      lastResultIMC,
+      openResultModal,
+      handleSetResultIMC,
+      handleResetResultIMC,
+      toggleResultModal,
+      handleSetLastResultIMC,
+    ],
   );
 
   return <IMCContext.Provider value={value}>{children}</IMCContext.Provider>;

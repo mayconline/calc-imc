@@ -3,8 +3,15 @@ import { IMCContext } from '../context/IMCContext';
 import { getFormattedIMC } from '../utils/format';
 
 export function useIMC() {
-  const { resultIMC, lastResultIMC, handleSetResultIMC, handleResetResultIMC } =
-    useContext(IMCContext);
+  const {
+    resultIMC,
+    lastResultIMC,
+    openResultModal,
+    handleSetResultIMC,
+    handleResetResultIMC,
+    handleSetLastResultIMC,
+    toggleResultModal,
+  } = useContext(IMCContext);
 
   const handleCalculateIMC = useCallback(
     (height: number, bodyWeight: number) => {
@@ -33,7 +40,10 @@ export function useIMC() {
   return {
     resultIMC,
     lastResultIMC,
+    openResultModal,
     handleCalculateIMC,
     handleResetResultIMC,
+    handleSetLastResultIMC,
+    toggleResultModal,
   };
 }

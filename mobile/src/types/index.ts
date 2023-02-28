@@ -18,6 +18,9 @@ export type ResultIMCType = {
 export type IMCContextType = {
   resultIMC: ResultIMCType[];
   lastResultIMC: ResultIMCType;
+  openResultModal: boolean;
   handleSetResultIMC: (resultIMC: ResultIMCType) => void;
+  handleSetLastResultIMC: (resultIMC: ResultIMCType) => void;
   handleResetResultIMC: () => void;
+  toggleResultModal: () => void;
 };

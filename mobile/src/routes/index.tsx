@@ -7,6 +7,7 @@ import { AppRoutes } from './app.routes';
 import { StatusBar } from 'react-native';
 import { useColorScheme } from 'nativewind';
 import colors from 'tailwindcss/colors';
+import { ResultIMCModal } from '../components/ResultIMCModal';
 
 export function Routes() {
   const { colorScheme } = useColorScheme();
@@ -22,6 +23,7 @@ export function Routes() {
         />
         <Header />
         <AppRoutes />
+        <ResultIMCModal />
       </IMCProvider>
     </NavigationContainer>
   );
