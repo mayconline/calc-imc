@@ -6,8 +6,8 @@
 
 Calculator IMC created with:
 
-- Web:  Next.JS and Tailwind
-- Mobile - (*in progress*): React-Native and Nativewind 
+- [Mobile: React-Native and Nativewind](https://play.google.com/store/apps/details?id=com.app.imccalc)
+- [Web: Next.JS and Tailwind](https://calc-imc-azure.vercel.app/)
 
 #### Getting Started
 
@@ -28,6 +28,12 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+#### 📱 Preview App Mobile
+
+<p align="center">
+<video src='' width=180/> 
+</p>
 
 #### 📱 Preview Responsive Web
 
