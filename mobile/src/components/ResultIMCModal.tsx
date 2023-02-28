@@ -26,7 +26,10 @@ export function ResultIMCModal() {
       transparent
     >
       <SafeAreaView className="flex-1 justify-end items-stretch">
-        <View className="rounded-t-3xl p-6 bg-gray-200 dark:bg-gray-700 min-h-[53%]">
+        <View
+          className="rounded-t-3xl p-6 bg-gray-200 dark:bg-gray-700 min-h-[53%]"
+          style={{ elevation: 2 }}
+        >
           <View className="self-end">
             <Icon
               name="close-circle-outline"

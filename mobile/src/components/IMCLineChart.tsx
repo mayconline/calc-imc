@@ -16,10 +16,9 @@ type chartValueProps = {
 interface IMCLineChartProps {
   data: ResultIMCType[];
   textColor: string;
-  lastResult: ResultIMCType;
 }
 
-function IMCLineChart({ data = [], textColor, lastResult }: IMCLineChartProps) {
+function IMCLineChart({ data = [], textColor }: IMCLineChartProps) {
   const [chartValue, setChartValue] =
     useState<chartValueProps[]>(INITIAL_LINE_CHART);
 
@@ -35,19 +34,21 @@ function IMCLineChart({ data = [], textColor, lastResult }: IMCLineChartProps) {
     }
   }, [data]);
 
+  const color = chartValue[chartValue.length - 1]?.color;
+
   return (
     <View
       className="w-full rounded-2xl my-2 px-4 py-1 bg-gray-200 dark:bg-gray-600 border-b-4"
-      style={{ borderBottomColor: lastResult?.situation?.color, elevation: 2 }}
+      style={{ borderBottomColor: color, elevation: 1 }}
     >
       <Text className="ml-2 mt-2">Últimos 5 IMC</Text>
       <LineChart
-        style={{ height: 120, paddingVertical: 0 }}
+        style={{ height: 96, paddingVertical: 0 }}
         data={chartValue}
         contentInset={{ top: 20, bottom: 20 }}
         svg={{
           strokeWidth: 2,
-          stroke: lastResult?.situation?.color,
+          stroke: color,
         }}
         yAccessor={({ item }) => Number(item.IMC)}
         curve={curveCardinal}
