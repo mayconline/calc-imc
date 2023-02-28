@@ -20,6 +20,8 @@ function ListIMCItem(item: ResultIMCType) {
       }
       style={{
         borderLeftColor: item.situation.color,
+        borderBottomColor: item.situation.color,
+        elevation: 1,
       }}
       onPress={handlePressIMC}
     >
