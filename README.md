@@ -32,8 +32,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 #### 📱 Preview App Mobile
 
 <p align="center">
-<video src='' width=180/> 
+<video src='https://user-images.githubusercontent.com/38052474/221988899-41dcec76-687b-4428-9b40-1bc4adfc29de.mp4' width=180/> 
 </p>
+
+
 
 #### 📱 Preview Responsive Web
 
