@@ -97,6 +97,7 @@ export function MenuModal({ visible, onClose }: MenuModalProps) {
               size={36}
               color={color}
               onPress={onClose}
+              isPressable
             />
           </View>
           <View className="flex-1 items-start justify-center">

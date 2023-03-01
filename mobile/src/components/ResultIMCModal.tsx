@@ -40,6 +40,7 @@ export function ResultIMCModal() {
                 size={36}
                 color={color}
                 onPress={handleShareScreenShot}
+                isPressable
               />
 
               <Icon
@@ -47,6 +48,7 @@ export function ResultIMCModal() {
                 size={36}
                 color={color}
                 onPress={toggleResultModal}
+                isPressable
               />
             </View>
 
