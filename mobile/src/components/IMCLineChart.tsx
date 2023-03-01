@@ -55,7 +55,7 @@ function IMCLineChart({ data = [], textColor }: IMCLineChartProps) {
       />
       <XAxis
         data={chartValue}
-        formatLabel={value => getFormattedDate(value.date)}
+        formatLabel={value => getFormattedDate(chartValue[value]?.date)}
         style={{ marginBottom: 20 }}
         contentInset={{ left: 24, right: 24 }}
         svg={{

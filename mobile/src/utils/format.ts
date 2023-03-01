@@ -7,7 +7,11 @@ export const getFormattedDate = (date: Date, withYear: boolean = false) => {
   const defaultFormat = 'DD MMM';
   const yearFormat = 'DD/MM/YYYY';
 
-  return dayjs(date).format(withYear ? yearFormat : defaultFormat);
+  const formattedDate = dayjs(date).format(
+    withYear ? yearFormat : defaultFormat,
+  );
+
+  return formattedDate;
 };
 
 export const getFormattedIMC = (IMC: number) => {
