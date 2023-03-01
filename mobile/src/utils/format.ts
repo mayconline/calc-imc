@@ -3,8 +3,11 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/pt-br';
 dayjs.locale('pt-br');
 
-export const getFormattedDate = (date: Date) => {
-  return dayjs(date).format('DD MMM');
+export const getFormattedDate = (date: Date, withYear: boolean = false) => {
+  const defaultFormat = 'DD MMM';
+  const yearFormat = 'DD/MM/YYYY';
+
+  return dayjs(date).format(withYear ? yearFormat : defaultFormat);
 };
 
 export const getFormattedIMC = (IMC: number) => {
