@@ -120,11 +120,11 @@ android {
         }
 
         release {
-            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
-                storeFile file(MYAPP_UPLOAD_STORE_FILE)
-                storePassword MYAPP_UPLOAD_STORE_PASSWORD
-                keyAlias MYAPP_UPLOAD_KEY_ALIAS
-                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+            if (project.hasProperty('MYAPP_UPLOAD_IMC_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_IMC_STORE_FILE)
+                storePassword MYAPP_UPLOAD_IMC_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_IMC_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_IMC_KEY_PASSWORD
             }
         }
     }
@@ -163,7 +163,7 @@ dependencies {
     implementation("com.facebook.react:react-android")
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
-    implementation("androidx.core:core-splashscreen:1.0.0") 
+    implementation("androidx.core:core-splashscreen:1.0.0")
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
@@ -185,3 +185,11 @@ project.ext.vectoricons = [
 ]
 
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
+// test if exists variable
+// task printEnvProperties {
+//     doLast {
+//         println "MYAPP_UPLOAD_IMC_STORE_FILE: " + MYAPP_UPLOAD_IMC_STORE_FILE
+//     }
+// }
+//./gradlew printEnvProperties
