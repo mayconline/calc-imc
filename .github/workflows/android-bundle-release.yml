@@ -1,4 +1,4 @@
-name: Build Release App Bundle
+name: Build App bundleRelease
 
 on: workflow_dispatch
 
@@ -35,10 +35,10 @@ jobs:
           cd mobile 
           yarn 
           cd android
-          ./gradlew assembleRelease -PMYAPP_UPLOAD_IMC_STORE_FILE="${{ steps.decode_keystore.outputs.filePath }}" \
-                                    -PMYAPP_UPLOAD_IMC_KEY_ALIAS="${{ secrets.MYAPP_UPLOAD_IMC_KEY_ALIAS }}" \
-                                    -PMYAPP_UPLOAD_IMC_STORE_PASSWORD="${{ secrets.MYAPP_UPLOAD_IMC_STORE_PASSWORD }}" \
-                                    -PMYAPP_UPLOAD_IMC_KEY_PASSWORD="${{ secrets.MYAPP_UPLOAD_IMC_KEY_PASSWORD }}"
+          ./gradlew bundleRelease -PMYAPP_UPLOAD_IMC_STORE_FILE="${{ steps.decode_keystore.outputs.filePath }}" \
+                                  -PMYAPP_UPLOAD_IMC_KEY_ALIAS="${{ secrets.MYAPP_UPLOAD_IMC_KEY_ALIAS }}" \
+                                  -PMYAPP_UPLOAD_IMC_STORE_PASSWORD="${{ secrets.MYAPP_UPLOAD_IMC_STORE_PASSWORD }}" \
+                                  -PMYAPP_UPLOAD_IMC_KEY_PASSWORD="${{ secrets.MYAPP_UPLOAD_IMC_KEY_PASSWORD }}"
         env:
           CI: true
 
@@ -46,4 +46,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Build Artifacts
-          path: mobile/android/app/build/outputs/apk/release/app-release.apk
+          path: mobile/android/app/build/outputs/bundle/release/app-release.aab
