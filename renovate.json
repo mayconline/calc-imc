@@ -5,19 +5,22 @@
       "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["patch", "minor"],
       "groupName": "devDependencies (non-major)",
-      "groupSlug": "dev-dependencies"
+      "groupSlug": "dev-dependencies",
+      "matchPaths": ["mobile/**", "web/**"]
     },
     {
       "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["patch", "minor"],
       "groupName": "dependencies (non-major)",
-      "groupSlug": "dependencies"
+      "groupSlug": "dependencies",
+      "matchPaths": ["mobile/**", "web/**"]
     },
     {
       "matchDepTypes": ["peerDependencies"],
       "matchUpdateTypes": ["patch", "minor"],
       "groupName": "peerDependencies (non-major)",
-      "groupSlug": "peerDependencies"
+      "groupSlug": "peerDependencies",
+      "matchPaths": ["mobile/**", "web/**"]
     },
     {
       "matchPackageNames": [
@@ -27,7 +30,8 @@
         "babel-jest"
       ],
       "groupName": "babel dev-dependencies",
-      "groupSlug": "babel-dev-dependencies"
+      "groupSlug": "babel-dev-dependencies",
+      "matchPaths": ["mobile/**"]
     }
   ],
   "separateMajorMinor": true
