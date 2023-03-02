@@ -27,11 +27,12 @@ jobs:
           java-version: '11'
           distribution: 'zulu'
 
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
+      - name: Setup Android SDK
+        run: cd mobile
+        uses: android-actions/setup-android@v2
 
       - name: build prod
-        run: ./gradlew assembleRelease
+        run: cd android && ./gradlew assembleRelease
         env:
           CI: true
           MYAPP_UPLOAD_IMC_STORE_FILE: ${{ steps.decode_keystore.outputs.filePath }}/${{ secrets.MYAPP_UPLOAD_IMC_STORE_FILE }}
