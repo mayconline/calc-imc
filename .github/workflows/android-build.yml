@@ -30,15 +30,15 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
-      - name: Configurar variáveis Gradle
+      - name: Build prod
         run: |
-          echo "MYAPP_UPLOAD_IMC_STORE_FILE=${{ steps.decode_keystore.outputs.filePath }}/${{ secrets.MYAPP_UPLOAD_IMC_STORE_FILE }}" >> $HOME/.gradle/gradle.properties
-          echo "MYAPP_UPLOAD_IMC_KEY_ALIAS=${{ secrets.MYAPP_UPLOAD_IMC_KEY_ALIAS }}" >> $HOME/.gradle/gradle.properties
-          echo "MYAPP_UPLOAD_IMC_STORE_PASSWORD=${{ secrets.MYAPP_UPLOAD_IMC_STORE_PASSWORD }}" >> $HOME/.gradle/gradle.properties
-          echo "MYAPP_UPLOAD_IMC_KEY_PASSWORD=${{ secrets.MYAPP_UPLOAD_IMC_KEY_PASSWORD }}" >> $HOME/.gradle/gradle.properties
-
-      - name: build prod
-        run: cd mobile && yarn && cd android && ./gradlew assembleRelease
+          cd mobile 
+          yarn 
+          cd android
+          ./gradlew assembleRelease -PMYAPP_UPLOAD_IMC_STORE_FILE="${{ steps.decode_keystore.outputs.filePath }}/${{ secrets.MYAPP_UPLOAD_IMC_STORE_FILE }}" \
+                                    -PMYAPP_UPLOAD_IMC_KEY_ALIAS="${{ secrets.MYAPP_UPLOAD_IMC_KEY_ALIAS }}" \
+                                    -PMYAPP_UPLOAD_IMC_STORE_PASSWORD="${{ secrets.MYAPP_UPLOAD_IMC_STORE_PASSWORD }}" \
+                                    -PMYAPP_UPLOAD_IMC_KEY_PASSWORD="${{ secrets.MYAPP_UPLOAD_IMC_KEY_PASSWORD }}"
         env:
           CI: true
 
