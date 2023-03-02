@@ -6,13 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Decode Keystore
-        id: decode_keystore
-        uses: timheuer/base64-to-file@v1.2
-        with:
-          fileName: ${{ secrets.MYAPP_UPLOAD_IMC_STORE_FILE }}
-          encodedString: ${{ secrets.KEYSTORE_IMC_ENCODING }}
-
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -25,6 +18,13 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
+
+      - name: Decode Keystore
+        id: decode_keystore
+        uses: timheuer/base64-to-file@v1.2
+        with:
+          fileName: ${{ secrets.MYAPP_UPLOAD_IMC_STORE_FILE }}
+          encodedString: ${{ secrets.KEYSTORE_IMC_ENCODING }}
 
       - name: Make gradlew executable
         run: chmod +x ./gradlew
