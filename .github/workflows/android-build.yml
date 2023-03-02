@@ -35,7 +35,7 @@ jobs:
           cd mobile 
           yarn 
           cd android
-          ./gradlew assembleRelease -PMYAPP_UPLOAD_IMC_STORE_FILE="${{ steps.decode_keystore.outputs.filePath }}/${{ secrets.MYAPP_UPLOAD_IMC_STORE_FILE }}" \
+          ./gradlew assembleRelease -PMYAPP_UPLOAD_IMC_STORE_FILE="${{ steps.decode_keystore.outputs.filePath }}" \
                                     -PMYAPP_UPLOAD_IMC_KEY_ALIAS="${{ secrets.MYAPP_UPLOAD_IMC_KEY_ALIAS }}" \
                                     -PMYAPP_UPLOAD_IMC_STORE_PASSWORD="${{ secrets.MYAPP_UPLOAD_IMC_STORE_PASSWORD }}" \
                                     -PMYAPP_UPLOAD_IMC_KEY_PASSWORD="${{ secrets.MYAPP_UPLOAD_IMC_KEY_PASSWORD }}"
