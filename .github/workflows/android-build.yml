@@ -31,7 +31,7 @@ jobs:
         uses: android-actions/setup-android@v2
 
       - name: build prod
-        run: cd mobile/android && ./gradlew assembleRelease
+        run: cd mobile && yarn && cd android && ./gradlew assembleRelease
         env:
           CI: true
           MYAPP_UPLOAD_IMC_STORE_FILE: ${{ steps.decode_keystore.outputs.filePath }}/${{ secrets.MYAPP_UPLOAD_IMC_STORE_FILE }}
