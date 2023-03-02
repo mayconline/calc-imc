@@ -27,15 +27,15 @@ jobs:
           java-version: '11'
           distribution: 'zulu'
 
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
       - name: Configurar variáveis Gradle
         run: |
           echo "MYAPP_UPLOAD_IMC_STORE_FILE=${{ steps.decode_keystore.outputs.filePath }}/${{ secrets.MYAPP_UPLOAD_IMC_STORE_FILE }}" >> $HOME/.gradle/gradle.properties
           echo "MYAPP_UPLOAD_IMC_KEY_ALIAS=${{ secrets.MYAPP_UPLOAD_IMC_KEY_ALIAS }}" >> $HOME/.gradle/gradle.properties
           echo "MYAPP_UPLOAD_IMC_STORE_PASSWORD=${{ secrets.MYAPP_UPLOAD_IMC_STORE_PASSWORD }}" >> $HOME/.gradle/gradle.properties
           echo "MYAPP_UPLOAD_IMC_KEY_PASSWORD=${{ secrets.MYAPP_UPLOAD_IMC_KEY_PASSWORD }}" >> $HOME/.gradle/gradle.properties
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
 
       - name: build prod
         run: cd mobile && yarn && cd android && ./gradlew assembleRelease
