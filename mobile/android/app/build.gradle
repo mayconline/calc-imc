@@ -121,15 +121,6 @@ android {
 
         release {
             if (project.hasProperty('MYAPP_UPLOAD_IMC_STORE_FILE')) {
-
-            // def tmpFilePath = System.getProperty("user.home") + "/work/_temp/"
-            // def allFilesFromDir = new File(tmpFilePath).listFiles()
-
-            // if (allFilesFromDir != null) {
-            //     def keystoreFile = allFilesFromDir.first()
-            //     keystoreFile.renameTo(MYAPP_UPLOAD_IMC_STORE_FILE)
-            // }
-
                 storeFile file(MYAPP_UPLOAD_IMC_STORE_FILE)
                 storePassword MYAPP_UPLOAD_IMC_STORE_PASSWORD
                 keyAlias MYAPP_UPLOAD_IMC_KEY_ALIAS
@@ -194,11 +185,3 @@ project.ext.vectoricons = [
 ]
 
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
-
-// test if exists variable
-// task printEnvProperties {
-//     doLast {
-//         println "MYAPP_UPLOAD_IMC_STORE_FILE: " + MYAPP_UPLOAD_IMC_STORE_FILE
-//     }
-// }
-//./gradlew printEnvProperties
