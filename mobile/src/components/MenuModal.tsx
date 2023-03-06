@@ -38,7 +38,7 @@ const menuItems = [
   },
   {
     icon: 'apps',
-    description: 'Versão do APP - v1.2.0',
+    description: 'Versão do APP - v1.3.1',
     disabled: true,
   },
 ];
@@ -81,7 +81,7 @@ export function MenuModal({ visible, onClose }: MenuModalProps) {
         return getTerms();
       case 'Contato':
         return getEmail();
-      case 'Versão do APP - v1.2.0':
+      case 'Versão do APP - v1.3.1':
         return;
       default:
         return;

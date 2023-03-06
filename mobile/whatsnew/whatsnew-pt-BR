@@ -1,0 +1,11 @@
+<pt-BR>
+- Realize o cálculo do seu IMC (Índice de Massa Corporal), inserindo seu peso e altura.
+- Utilizamos o cálculo fornecido pela OMS (Organização mundial da saúde).
+- Tenha acesso ao histórico do seu IMC.
+- Não levamos em conta o seu percentual de gordura, não sendo muito eficaz para praticantes de atividades físicas, idosos e crianças.
+
+v1.3.1
+
+- Nova funcionalidade de exportar dados para excel
+- Correção de bug
+  </pt-BR>
