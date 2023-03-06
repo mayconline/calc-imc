@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import ViewShot from 'react-native-view-shot';
-import Share from 'react-native-share';
+import { handleShare } from '../utils/share';
 
 export function useShareScreenshot() {
   const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ export function useShareScreenshot() {
     setLoading(true);
     try {
       const imageURI = await handleCaptureScreenShot();
-      Share.open({
+      await handleShare({
         title: 'Compartilhar imagem',
         url: imageURI,
         type: 'image/jpeg',

@@ -7,6 +7,8 @@ import { Text } from './Text';
 import { Icon } from './Icon';
 import { getEmail, getTerms } from '../utils/links';
 import { useIMC } from '../hooks/useIMC';
+import { useXLS } from '../hooks/useXLS';
+import { ActivityIndicator } from 'react-native';
 
 interface MenuModalProps {
   visible: boolean;
@@ -14,11 +16,11 @@ interface MenuModalProps {
 }
 
 const menuItems = [
-  // {
-  //   icon: 'file-export-outline',
-  //   description: 'Exportar Dados',
-  //   disabled: true,
-  // },
+  {
+    icon: 'file-export-outline',
+    description: 'Exportar Dados',
+    disabled: false,
+  },
   {
     icon: 'delete-forever',
     description: 'Apagar Dados',
@@ -42,14 +44,19 @@ const menuItems = [
 ];
 
 export function MenuModal({ visible, onClose }: MenuModalProps) {
-  const { handleResetResultIMC } = useIMC();
+  const { handleResetResultIMC, resultIMC } = useIMC();
   const { colorScheme } = useColorScheme();
   const color = textColorTheme(colorScheme);
+  const { handleShareXLS, xlsFile, loading } = useXLS({
+    resultIMC,
+  });
 
   const handleMenuItemClick = (description: string) => {
     switch (description) {
       case 'Exportar Dados':
-        return;
+        return xlsFile
+          ? handleShareXLS()
+          : Alert.alert('Atenção', 'Ocorreu um erro ao exportar');
       case 'Apagar Dados': {
         Alert.alert(
           'Apagar Dados',
@@ -89,8 +96,8 @@ export function MenuModal({ visible, onClose }: MenuModalProps) {
       transparent
     >
       <SafeAreaView className="flex-1 justify-end items-stretch">
-        <View className="rounded-t-3xl p-6 bg-gray-200 dark:bg-gray-700 min-h-[54%]">
-          <View className="flex-row justify-between items-center">
+        <View className="rounded-t-3xl p-6 bg-gray-200 dark:bg-gray-700 min-h-[64%]">
+          <View className="flex-row justify-between items-center mb-12">
             <Text className="flex-1 text-center">Menu</Text>
             <Icon
               name="close-circle-outline"
@@ -104,12 +111,17 @@ export function MenuModal({ visible, onClose }: MenuModalProps) {
             {menuItems.map(item => (
               <Fragment key={item.description}>
                 <TouchableOpacity
-                  className="flex-row w-full items-center py-2"
+                  className="flex-row w-full justify-between items-center py-2"
                   disabled={item.disabled}
                   onPress={() => handleMenuItemClick(item.description)}
                 >
-                  <Icon name={item.icon} size={36} color={color} />
-                  <Text className="font-normal ml-2">{item.description}</Text>
+                  <View className="flex-row items-center">
+                    <Icon name={item.icon} size={36} color={color} />
+                    <Text className="font-normal ml-2">{item.description}</Text>
+                  </View>
+                  {item.description === 'Exportar Dados' && loading && (
+                    <ActivityIndicator color={color} size="large" />
+                  )}
                 </TouchableOpacity>
                 <View
                   className="w-full opacity-10 my-1"
