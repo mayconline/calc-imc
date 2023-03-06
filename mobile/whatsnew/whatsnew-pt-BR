@@ -1,4 +1,3 @@
-<pt-BR>
 - Realize o cálculo do seu IMC (Índice de Massa Corporal), inserindo seu peso e altura.
 - Utilizamos o cálculo fornecido pela OMS (Organização mundial da saúde).
 - Tenha acesso ao histórico do seu IMC.
@@ -8,4 +7,3 @@ v1.3.1
 
 - Nova funcionalidade de exportar dados para excel
 - Correção de bug
-  </pt-BR>
