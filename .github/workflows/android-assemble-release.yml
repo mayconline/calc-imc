@@ -30,7 +30,7 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
-      - name: Build prod
+      - name: Build APK
         run: |
           cd mobile 
           yarn 
@@ -45,5 +45,5 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
-          name: Build Artifacts
+          name: IMC Calc APK
           path: mobile/android/app/build/outputs/apk/release/app-release.apk
