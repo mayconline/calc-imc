@@ -9,6 +9,9 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
+    defaults:
+      run:
+        working-directory: mobile
     steps:
       - uses: actions/checkout@v3
 
