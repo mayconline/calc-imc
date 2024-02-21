@@ -1,3 +1,4 @@
+'use client';
 import {
   createContext,
   ReactNode,
@@ -5,7 +6,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { IMCContextType, ResultIMCType } from '../types';
+import { IMCContextType, ResultIMCType } from '@/types';
 
 export const IMCContext = createContext({} as IMCContextType);
 
@@ -23,7 +24,6 @@ export const IMCProvider = ({ children }: IMCProviderProps) => {
   const value = useMemo(
     () => ({
       resultIMC,
-
       handleSetResultIMC,
     }),
     [resultIMC, handleSetResultIMC]

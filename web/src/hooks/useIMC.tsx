@@ -1,7 +1,7 @@
+'use client';
 import { useCallback, useContext } from 'react';
-import { IMCContext } from '../context/IMCContext';
-
-import { getFormattedIMC } from '../utils/format';
+import { IMCContext } from '@/context/IMCContext';
+import { getFormattedIMC } from '@/utils/format';
 
 export function useIMC() {
   const { resultIMC, handleSetResultIMC } = useContext(IMCContext);

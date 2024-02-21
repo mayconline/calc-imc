@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { ResultIMCType } from '../types';
-import { getFormattedDate } from '../utils/format';
+import { ResultIMCType } from '@/types';
+import { getFormattedDate } from '@/utils/format';
 
 export const ResultItem = memo(function ResultItem(result: ResultIMCType) {
   return (

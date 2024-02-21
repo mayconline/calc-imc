@@ -1,11 +1,9 @@
+'use client';
 import { FormEvent, useState } from 'react';
-import { useIMC } from '../hooks/useIMC';
-
-import { FormValue } from '../types';
-import { getReplaceCommaToDot } from '../utils/format';
-
-import { Button } from './button';
-import { Input } from './input';
+import { useIMC } from '@/hooks/useIMC';
+import { FormValue } from '@/types';
+import { getReplaceCommaToDot } from '@/utils/format';
+import { Button, Input } from '@/components';
 
 export function IMCForm() {
   const { handleCalculateIMC } = useIMC();

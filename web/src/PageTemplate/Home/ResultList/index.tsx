@@ -1,5 +1,6 @@
-import { useIMC } from '../hooks/useIMC';
-import { ResultItem } from './resultItem';
+'use client';
+import { useIMC } from '@/hooks/useIMC';
+import { ResultItem } from '@/PageTemplate/Home/ResultList/ResultItem';
 
 export function ResultList() {
   const { resultIMC } = useIMC();
