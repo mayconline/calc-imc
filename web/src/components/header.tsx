@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ThemeToggle } from '@/components';
 
 export function Header() {
   return (
-    <header className="flex items-center justify-end">
+    <header className="flex items-center justify-between">
       <Link
         className="cursor-pointer"
         href="https://play.google.com/store/apps/details?id=com.app.imccalc&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
@@ -16,6 +17,7 @@ export function Header() {
           priority
         />
       </Link>
+      <ThemeToggle />
     </header>
   );
 }

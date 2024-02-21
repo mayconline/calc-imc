@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className="min-h-screen p-4 flex flex-col bg-gray-900 text-gray-100 antialiased">
+      <body className="min-h-screen p-4 flex flex-col bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100  antialiased">
         <Header />
         {children}
         <Footer />
